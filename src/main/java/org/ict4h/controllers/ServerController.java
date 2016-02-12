@@ -5,6 +5,7 @@ import org.ict4h.service.ServerConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -16,11 +17,9 @@ public class ServerController {
         this.serverConfiguration = serverConfiguration;
     }
 
-    @RequestMapping("/config")
+    @RequestMapping(name = "/config", method = RequestMethod.GET)
     @ResponseBody
     public Servers getServerDetails() {
         return serverConfiguration.getServerDetails();
     }
 }
-
-
