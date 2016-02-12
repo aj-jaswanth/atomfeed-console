@@ -1,0 +1,10 @@
+---
+
+serverUrl: http://google.com
+
+...
+
+---
+serverUrl: "https://emrdemo.bahmni.org/openelis/ws/feed/patient/recent/"
+
+...
