@@ -1,0 +1,18 @@
+---
+
+  appname: newTestApp
+  db_type: mysql
+  db_url: www.jhihiu.ihoih
+  db_uid: abc123
+  db_pwd: 78900
+
+...
+
+---
+  appname: ioui
+  db_type: postgress
+  db_url: www.kjbg.ihoih
+  db_uid: ytfytv8890
+  db_pwd: 66776
+
+...
