@@ -11,29 +11,24 @@ import java.io.InputStream;
 @Component
 public class AppConfiguration {
 
-        private AppConfigs appconfigs= new AppConfigs();
-        public AppConfiguration() {
+    private AppConfigs appconfigs = new AppConfigs();
 
-            try {
-                InputStream in = this.getClass().getClassLoader().getResourceAsStream("Apps.yml");
-                Constructor constructor=new Constructor(AppConfig.class);
-                Yaml yaml = new Yaml(constructor);
+    public AppConfiguration() {
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("Apps.yml");
+        Constructor constructor = new Constructor(AppConfig.class);
+        Yaml yaml = new Yaml(constructor);
 
-                for( Object data : yaml.loadAll(in)) {
+        for (Object data : yaml.loadAll(in)) {
 
-                    AppConfig obj=(AppConfig) data;
-                    appconfigs.add(obj);
-                }
-            }
-
-            catch (Exception e){
-                throw e;
-            }
-
+            AppConfig obj = (AppConfig) data;
+            appconfigs.add(obj);
         }
-        public AppConfigs getAppDetails(){
-            return appconfigs;
-        }
+
+    }
+
+    public AppConfigs getAppDetails() {
+        return appconfigs;
+    }
 
 
 }
