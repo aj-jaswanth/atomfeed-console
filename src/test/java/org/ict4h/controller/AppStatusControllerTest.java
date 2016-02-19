@@ -1,21 +1,24 @@
 package org.ict4h.controller;
 
+import org.ict4h.AtomfeedConsoleApplication;
 import org.ict4h.controllers.AppStatusController;
 import org.ict4h.domain.AppStatus;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.IntegrationTest;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.sql.SQLException;
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(AtomfeedConsoleApplication.class)
 public class AppStatusControllerTest {
 
     @Autowired
-    private AppStatusController appStatusController = new AppStatusController();
+    private AppStatusController appStatusController;
 
     @Test
     public void shouldReturnFeedStatus() throws Exception {
         AppStatus appStatus = appStatusController.getAppStatus("newTestApp");
-        System.out.println(appStatus.getMarker());
+        System.out.println(appStatus);
     }
 }

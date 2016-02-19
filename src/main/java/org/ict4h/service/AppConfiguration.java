@@ -10,7 +10,6 @@ import java.io.InputStream;
 
 @Component
 public class AppConfiguration {
-
     private AppConfigs appconfigs = new AppConfigs();
 
     public AppConfiguration() {
@@ -27,5 +26,9 @@ public class AppConfiguration {
 
     public AppConfigs getAppConfigs() {
         return appconfigs;
+    }
+
+    public AppConfig getAppConfigForApp(String appName) {
+        return appconfigs.getForApp(appName);
     }
 }

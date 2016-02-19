@@ -42,4 +42,8 @@ public class AppConfig {
     public void setDb_uid(String db_uid) {
         this.db_uid = db_uid;
     }
+
+    public boolean isFor(String app_name) {
+        return app_name.equalsIgnoreCase(this.appName);
+    }
 }
