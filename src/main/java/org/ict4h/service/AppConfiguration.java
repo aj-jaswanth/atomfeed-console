@@ -10,10 +10,11 @@ import java.io.InputStream;
 
 @Component
 public class AppConfiguration {
+    public static final String DEFAULT_APP_CONFIG_FILE = "applicationConfig.yml";
     private AppConfigs appconfigs = new AppConfigs();
 
     public AppConfiguration() {
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream("Apps.yml");
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream(DEFAULT_APP_CONFIG_FILE);
         Constructor constructor = new Constructor(AppConfig.class);
         Yaml yaml = new Yaml(constructor);
 
