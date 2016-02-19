@@ -1,11 +1,12 @@
 ---
 
   appName: newTestApp
-  db_url: jdbc:mysql://172.18.2.10/openmrs
+  db_url: 172.18.2.10
   db_uid: openmrs-user
   db_pwd: password
 
 ...
+
 ---
   appName: ioui
   db_url: www.kjbg.ihoih
