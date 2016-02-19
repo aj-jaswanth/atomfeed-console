@@ -5,7 +5,6 @@ import org.ict4h.atomfeed.client.repository.AllMarkers;
 import org.ict4h.atomfeed.client.repository.jdbc.AllMarkersJdbcImpl;
 import org.ict4h.atomfeed.jdbc.JdbcConnectionProvider;
 import org.ict4h.service.AppConfiguration;
-import org.springframework.context.annotation.Configuration;
 
 
 import java.sql.Connection;
@@ -17,7 +16,7 @@ public class AppStatus {
 
     private final AllMarkers markers;
     AppConfiguration appConfiguration = new AppConfiguration();
-    AppConfigs appConfigs = appConfiguration.getAppDetails();
+    AppConfigs appConfigs = appConfiguration.getAppConfigs();
     AppConfig appConfig = new AppConfig();
     String db_url,db_uid,db_pwd;
     List<Marker> marker;

@@ -23,12 +23,9 @@ public class AppConfiguration {
             AppConfig obj = (AppConfig) data;
             appconfigs.add(obj);
         }
-
     }
 
-    public AppConfigs getAppDetails() {
+    public AppConfigs getAppConfigs() {
         return appconfigs;
     }
-
-
 }

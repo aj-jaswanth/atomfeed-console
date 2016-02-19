@@ -17,5 +17,5 @@ public class AppController {
 
     @RequestMapping("/apps")
     @ResponseBody
-    public AppConfigs getAppDetails() {return appConfiguration.getAppDetails();}
+    public AppConfigs getAppDetails() {return appConfiguration.getAppConfigs();}
 }
