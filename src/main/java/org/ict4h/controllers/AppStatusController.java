@@ -6,6 +6,7 @@ import org.ict4h.service.AppConfiguration;
 import org.ict4h.service.AppStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,7 +28,7 @@ public class AppStatusController {
 
     @RequestMapping("/apps/{appName}")
     @ResponseBody
-    public AppStatus getAppStatus(@RequestParam("appName") String appName) throws SQLException {
+    public AppStatus getAppStatus(@PathVariable("appName") String appName) throws SQLException {
         return appStatusService.getAppStatus(appConfiguration.getAppConfigForApp(appName));
     }
 }

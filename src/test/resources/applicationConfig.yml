@@ -7,9 +7,9 @@
 
 ...
 ---
-  appName: ioui
-  dbUrl: www.kjbg.ihoih
-  dbUser: ytfytv8890
-  dbPassword: 66776
+  appName: anotherTestApp
+  dbUrl: jdbc:mysql://172.18.2.10/openmrs
+  dbUser: openmrs-user
+  dbPassword: password
 
 ...

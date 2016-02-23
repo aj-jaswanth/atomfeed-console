@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class AppConfigs extends ArrayList<AppConfig> {
 
-    public AppConfig getForApp(String app_name) {
+    public AppConfig getForApp(String appName) {
         for (AppConfig appConfig : this) {
-            if (appConfig.isFor(app_name)) return appConfig;
+            if (appConfig.isFor(appName)) return appConfig;
         }
         return null;
     }

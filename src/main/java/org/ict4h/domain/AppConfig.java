@@ -11,6 +11,13 @@ public class AppConfig {
     public AppConfig() {
     }
 
+    public AppConfig(String appName, String dbUrl, String dbUser, String dbPassword) {
+        this.appName = appName;
+        this.dbUrl = dbUrl;
+        this.dbUser = dbUser;
+        this.dbPassword = dbPassword;
+    }
+
     public String getAppName() {
         return appName;
     }
