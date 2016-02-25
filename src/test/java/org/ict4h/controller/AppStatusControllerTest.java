@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(AtomfeedConsoleApplication.class)
 public class AppStatusControllerTest {
@@ -19,8 +20,6 @@ public class AppStatusControllerTest {
     @Test
     public void shouldReturnFeedStatus() throws Exception {
         AppStatus appStatus = appStatusController.getAppStatus("anotherTestApp");
-        System.out.println(appStatus);
-        appStatus = appStatusController.getAppStatus("newTestApp");
         System.out.println(appStatus);
     }
 }
