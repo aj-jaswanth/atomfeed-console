@@ -24,7 +24,7 @@ public class AppStatusController {
         this.appStatusService = appStatusService;
     }
 
-    @RequestMapping("/apps/{appName}")
+    @RequestMapping("/apps/{appName}/feedStatus")
     @ResponseBody
     public AppStatus getAppStatus(@PathVariable("appName") String appName) throws SQLException {
         return appStatusService.getAppStatus(appConfiguration.getAppConfigForApp(appName));
