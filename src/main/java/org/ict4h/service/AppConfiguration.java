@@ -7,13 +7,14 @@ import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.InputStream;
+import java.sql.SQLException;
 
 @Component
 public class AppConfiguration {
     public static final String DEFAULT_APP_CONFIG_FILE = "applicationConfig.yml";
     private AppConfigs appconfigs = new AppConfigs();
 
-    public AppConfiguration() {
+    public AppConfiguration() throws SQLException{
         InputStream in = this.getClass().getClassLoader().getResourceAsStream(DEFAULT_APP_CONFIG_FILE);
         Constructor constructor = new Constructor(AppConfig.class);
         Yaml yaml = new Yaml(constructor);
@@ -23,7 +24,10 @@ public class AppConfiguration {
             AppConfig obj = (AppConfig) data;
             appconfigs.add(obj);
         }
+
     }
+
+
 
     public AppConfigs getAppConfigs() {
         return appconfigs;

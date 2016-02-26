@@ -21,5 +21,7 @@ public class AppStatusControllerTest {
     public void shouldReturnFeedStatus() throws Exception {
         AppStatus appStatus = appStatusController.getAppStatus("anotherTestApp");
         System.out.println(appStatus);
+        appStatus = appStatusController.getAppStatus("newTestApp");
+        System.out.println(appStatus);
     }
 }

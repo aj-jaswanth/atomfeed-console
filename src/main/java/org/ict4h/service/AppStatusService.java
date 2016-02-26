@@ -9,21 +9,30 @@ import org.ict4h.atomfeed.jdbc.JdbcConnectionProvider;
 import org.ict4h.domain.AppConfig;
 import org.ict4h.domain.AppStatus;
 import org.ict4h.domain.FeedStatus;
+import org.ict4h.jdbc.ConnectionPools;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class AppStatusService {
+    ConnectionPools connectionPools;
 
-    public AppStatus getAppStatus(AppConfig appConfig) {
+    @Autowired
+    public AppStatusService(ConnectionPools connectionPools)throws SQLException{
+        this.connectionPools = connectionPools;
+    }
 
-        AllMarkers allMarkers = new AllMarkersJdbcImpl(getJdbcConnection(appConfig));
-        AllFailedEvents allFailedEvents = new AllFailedEventsJdbcImpl(getJdbcConnection(appConfig));
+
+    public AppStatus getAppStatus(AppConfig appConfig)throws SQLException{
+
+        AtomfeedConsoleConnectionProvider jdbcConnection = (AtomfeedConsoleConnectionProvider) getJdbcConnection(appConfig.getAppName());
+        AllMarkers allMarkers = new AllMarkersJdbcImpl(jdbcConnection);
+        AllFailedEvents allFailedEvents = new AllFailedEventsJdbcImpl(jdbcConnection);
         List<Marker> markers = new ArrayList();
         markers = allMarkers.getMarkerList();
         AppStatus appStatus=new AppStatus();
@@ -32,24 +41,39 @@ public class AppStatusService {
             FeedStatus feedStatus = new FeedStatus(marker,allFailedEvents);
             appStatus.add(feedStatus);
         }
+        jdbcConnection.getConnection().close();
 
         return appStatus;
     }
 
-    public JdbcConnectionProvider getJdbcConnection(final AppConfig appConfig) {
+    public JdbcConnectionProvider getJdbcConnection(String appName) {
         org.ict4h.atomfeed.Configuration.getInstance(AppConfiguration.DEFAULT_APP_CONFIG_FILE);
+        try {
+            return new AtomfeedConsoleConnectionProvider(connectionPools.getConnection(appName));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-        return new JdbcConnectionProvider() {
-            @Override
-            public Connection getConnection() throws SQLException {
-                return DriverManager.getConnection(appConfig.getDbUrl(), appConfig.getDbUser(), appConfig.getDbPassword());
+    public class AtomfeedConsoleConnectionProvider implements JdbcConnectionProvider{
+        private Connection connection;
+
+        public AtomfeedConsoleConnectionProvider(Connection connection) {
+            this.connection = connection;
+        }
+
+        @Override
+        public Connection getConnection() throws SQLException {
+            return connection;
+        }
+
+        public void closeConnection() {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        };
+        }
     }
 
-    public AllFailedEvents getCountOfFailedEvents(AppConfig appConfig) {
-
-        return new AllFailedEventsJdbcImpl(getJdbcConnection(appConfig));
-
-    }
 }
