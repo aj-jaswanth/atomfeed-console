@@ -24,6 +24,14 @@ public class FailedEventService {
 
     }
 
+    public void resetRetriesService(AppConfig appConfig,String failedEventId){
+        AppStatusService.AtomfeedConsoleConnectionProvider jdbcConnection = (AppStatusService.AtomfeedConsoleConnectionProvider) appStatusService.getJdbcConnection(appConfig.getAppName());
+        AllFailedEvents allFailedEvents = new AllFailedEventsJdbcImpl(jdbcConnection);
+        FailedEvent failedEvent=allFailedEvents.getByEventId(failedEventId);
+        System.out.println(failedEvent);
+        failedEvent.setRetries(0);
+        allFailedEvents.addOrUpdate(failedEvent);
+    }
 
 
 
