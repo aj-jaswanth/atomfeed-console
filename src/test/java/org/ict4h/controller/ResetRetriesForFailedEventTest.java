@@ -35,7 +35,7 @@ public class ResetRetriesForFailedEventTest {
 
     @Before
     public void setUp() throws SQLException {
-       // createDatabase();
+         //createDatabase();
     }
 
     @Test

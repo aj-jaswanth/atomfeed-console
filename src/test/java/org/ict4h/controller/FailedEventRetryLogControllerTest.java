@@ -42,7 +42,7 @@ public class FailedEventRetryLogControllerTest {
 
     @Before
     public void setUp() throws SQLException {
-       // Database.createDatabase();
+        //Database.createDatabase();
 
     }
 

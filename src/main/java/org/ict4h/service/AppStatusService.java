@@ -1,5 +1,6 @@
 package org.ict4h.service;
 
+import org.apache.log4j.Logger;
 import org.ict4h.atomfeed.client.domain.Marker;
 import org.ict4h.atomfeed.client.repository.AllFailedEvents;
 import org.ict4h.atomfeed.client.repository.AllMarkers;
@@ -20,6 +21,7 @@ import java.util.List;
 
 @Component
 public class AppStatusService {
+    private static Logger logger = Logger.getLogger(AppStatusService.class);
     ConnectionPools connectionPools;
 
     @Autowired
@@ -34,6 +36,7 @@ public class AppStatusService {
         AllFailedEvents allFailedEvents = new AllFailedEventsJdbcImpl(jdbcConnection);
         List<Marker> markers = new ArrayList();
         markers = allMarkers.getMarkerList();
+        logger.debug(String.format("List of markers read : %s",markers));
         Feeds feeds =new Feeds();
 
         for(Marker marker : markers){
@@ -41,6 +44,7 @@ public class AppStatusService {
             Feed feed = new Feed(marker.getFeedUri(), marker.getLastReadEntryId(), numberOfFailedEvents);
             feeds.add(feed);
         }
+        logger.debug(String.format("List of feed status prepared for a given application : %s",feeds));
         jdbcConnection.getConnection().close();
 
         return feeds;
@@ -49,8 +53,10 @@ public class AppStatusService {
     public JdbcConnectionProvider getJdbcConnection(String appName) {
         org.ict4h.atomfeed.Configuration.getInstance(AppConfiguration.DEFAULT_APP_CONFIG_FILE);
         try {
+            logger.debug(String.format("Opening connection for App : %s",appName));
             return new AtomfeedConsoleConnectionProvider(connectionPools.getConnection(appName));
         } catch (SQLException e) {
+            logger.error(String.format("Failed to open connection for App : %s",appName));
             throw new RuntimeException(e);
         }
     }
@@ -70,7 +76,9 @@ public class AppStatusService {
         public void closeConnection() {
             try {
                 connection.close();
+                logger.debug("Connection closed");
             } catch (SQLException e) {
+                logger.error("Failed to close connection");
                 throw new RuntimeException(e);
             }
         }

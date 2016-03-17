@@ -1,5 +1,6 @@
 package org.ict4h.service;
 
+import org.apache.log4j.Logger;
 import org.ict4h.domain.configuration.AppConfig;
 import org.ict4h.domain.configuration.AppConfigs;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import java.sql.SQLException;
 
 @Component
 public class AppConfiguration {
+    private static Logger logger = Logger.getLogger(AppConfiguration.class);
     public static final String DEFAULT_APP_CONFIG_FILE = "applicationConfig.yml";
     private AppConfigs appconfigs = new AppConfigs();
 
@@ -18,7 +20,7 @@ public class AppConfiguration {
         InputStream in = this.getClass().getClassLoader().getResourceAsStream(DEFAULT_APP_CONFIG_FILE);
         Constructor constructor = new Constructor(AppConfig.class);
         Yaml yaml = new Yaml(constructor);
-
+        logger.info("Reading app details from a yaml file");
         for (Object data : yaml.loadAll(in)) {
 
             AppConfig obj = (AppConfig) data;
