@@ -1,4 +1,4 @@
-package org.ict4h.domain;
+package org.ict4h.domain.configuration;
 
 
 public class AppConfig {

@@ -1,6 +1,6 @@
 package org.ict4h.controllers;
 
-import org.ict4h.domain.AppStatus;
+import org.ict4h.domain.Feeds;
 import org.ict4h.service.AppConfiguration;
 import org.ict4h.service.AppStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class AppStatusController {
 
     @RequestMapping("/apps/{appName}/feedStatus")
     @ResponseBody
-    public AppStatus getAppStatus(@PathVariable("appName") String appName) throws SQLException {
+    public Feeds getAppStatus(@PathVariable("appName") String appName) throws SQLException {
         return appStatusService.getAppStatus(appConfiguration.getAppConfigForApp(appName));
     }
 }

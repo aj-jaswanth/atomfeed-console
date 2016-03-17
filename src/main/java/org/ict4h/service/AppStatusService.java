@@ -6,9 +6,9 @@ import org.ict4h.atomfeed.client.repository.AllMarkers;
 import org.ict4h.atomfeed.client.repository.jdbc.AllFailedEventsJdbcImpl;
 import org.ict4h.atomfeed.client.repository.jdbc.AllMarkersJdbcImpl;
 import org.ict4h.atomfeed.jdbc.JdbcConnectionProvider;
-import org.ict4h.domain.AppConfig;
-import org.ict4h.domain.AppStatus;
-import org.ict4h.domain.FeedStatus;
+import org.ict4h.domain.configuration.AppConfig;
+import org.ict4h.domain.Feeds;
+import org.ict4h.domain.Feed;
 import org.ict4h.jdbc.ConnectionPools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,23 +27,23 @@ public class AppStatusService {
         this.connectionPools = connectionPools;
     }
 
-
-    public AppStatus getAppStatus(AppConfig appConfig)throws SQLException{
+    public Feeds getAppStatus(AppConfig appConfig)throws SQLException{
 
         AtomfeedConsoleConnectionProvider jdbcConnection = (AtomfeedConsoleConnectionProvider) getJdbcConnection(appConfig.getAppName());
         AllMarkers allMarkers = new AllMarkersJdbcImpl(jdbcConnection);
         AllFailedEvents allFailedEvents = new AllFailedEventsJdbcImpl(jdbcConnection);
         List<Marker> markers = new ArrayList();
         markers = allMarkers.getMarkerList();
-        AppStatus appStatus=new AppStatus();
+        Feeds feeds =new Feeds();
 
         for(Marker marker : markers){
-            FeedStatus feedStatus = new FeedStatus(marker,allFailedEvents);
-            appStatus.add(feedStatus);
+            int numberOfFailedEvents = allFailedEvents.getNumberOfFailedEvents(marker.getFeedUri().toString());
+            Feed feed = new Feed(marker.getFeedUri(), marker.getLastReadEntryId(), numberOfFailedEvents);
+            feeds.add(feed);
         }
         jdbcConnection.getConnection().close();
 
-        return appStatus;
+        return feeds;
     }
 
     public JdbcConnectionProvider getJdbcConnection(String appName) {

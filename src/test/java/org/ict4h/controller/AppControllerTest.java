@@ -2,8 +2,8 @@ package org.ict4h.controller;
 
 import org.ict4h.AtomfeedConsoleApplication;
 import org.ict4h.controllers.AppController;
-import org.ict4h.domain.AppConfig;
-import org.ict4h.domain.AppConfigs;
+import org.ict4h.domain.configuration.AppConfig;
+import org.ict4h.domain.configuration.AppConfigs;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +25,8 @@ public class AppControllerTest {
     @Test
     public void shouldRetrieveConfig() {
         AppConfigs appDetails = appController.getAppDetails();
-        assertThat(appDetails.size(), is((equalTo(2))));
+        assertThat(appDetails.size(), is((equalTo(1))));
         AppConfig appConfig = appDetails.get(0);
-        assertThat(appConfig.getAppName(), is(equalTo("newTestApp")));
+        assertThat(appConfig.getAppName(), is(equalTo("testApp")));
     }
 }

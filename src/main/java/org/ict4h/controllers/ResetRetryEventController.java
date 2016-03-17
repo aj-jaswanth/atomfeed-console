@@ -1,6 +1,6 @@
 package org.ict4h.controllers;
 
-import org.ict4h.domain.AppConfig;
+import org.ict4h.domain.configuration.AppConfig;
 import org.ict4h.service.AppConfiguration;
 import org.ict4h.service.FailedEventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import java.sql.SQLException;
 @Controller
 public class ResetRetryEventController {
 
-    FailedEventService failedEventService;
+    private FailedEventService failedEventService;
     private AppConfiguration appConfiguration;
 
     @Autowired
@@ -22,13 +22,10 @@ public class ResetRetryEventController {
         this.failedEventService = failedEventService;
     }
 
-
-
     @RequestMapping(value = "/apps/{appName}/failedEvent/{eventId}/resetRetryCount", method = RequestMethod.POST)
     @ResponseBody
     public void resetRetries(@PathVariable String appName,@PathVariable String eventId) throws SQLException, UnsupportedEncodingException {
         AppConfig appConfig = appConfiguration.getAppConfigForApp(appName);
         failedEventService.resetRetriesService(appConfig,eventId);
-
     }
 }

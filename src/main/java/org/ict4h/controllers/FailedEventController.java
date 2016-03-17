@@ -1,7 +1,7 @@
 package org.ict4h.controllers;
 
 import org.ict4h.atomfeed.client.domain.FailedEvent;
-import org.ict4h.domain.AppConfig;
+import org.ict4h.domain.configuration.AppConfig;
 import org.ict4h.service.AppConfiguration;
 import org.ict4h.service.FailedEventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +32,4 @@ public class FailedEventController {
         AppConfig appConfig = appConfiguration.getAppConfigForApp(appName);
         return failedEventService.failedEventStatus(appConfig, URLDecoder.decode(feedUri, "utf-8"));
     }
-
 }

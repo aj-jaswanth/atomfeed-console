@@ -1,7 +1,7 @@
 package org.ict4h.service;
 
-import org.ict4h.domain.AppConfig;
-import org.ict4h.domain.AppConfigs;
+import org.ict4h.domain.configuration.AppConfig;
+import org.ict4h.domain.configuration.AppConfigs;
 import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
@@ -26,9 +26,6 @@ public class AppConfiguration {
         }
 
     }
-
-
-
     public AppConfigs getAppConfigs() {
         return appconfigs;
     }

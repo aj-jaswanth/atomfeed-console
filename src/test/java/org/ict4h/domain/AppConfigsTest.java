@@ -1,5 +1,7 @@
 package org.ict4h.domain;
 
+import org.ict4h.domain.configuration.AppConfig;
+import org.ict4h.domain.configuration.AppConfigs;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -27,7 +29,6 @@ public class AppConfigsTest {
     public void shouldNotFailIfNullPassedIn() {
         AppConfigs appConfigs = new AppConfigs();
         appConfigs.add(new AppConfig("app1", null, null, null));
-        appConfigs.getForApp("newTestApp");
+        appConfigs.getForApp("testApp");
     }
-
 }
