@@ -11,7 +11,7 @@
             <td>{{result.lastReadEntry}}</td>
             <td>{{result.countOfFailedEvents}}</td>
             <td>
-                <button type="button" ng-click="view(appName,result)">View</button>
+                <a class="button1" href="#/apps/{{appName}}/failedEvent?feedUri={{result.feedUri}}">View</a>
             </td>
         </tr>
     </table>

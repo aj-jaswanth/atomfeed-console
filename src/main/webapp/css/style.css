@@ -101,8 +101,18 @@ table{
     top: 120px;
 }
 button{
+    float: right;
     font-size: 17px;
     background: #FDBC43;
     border: 1px solid #fcb228;
     border-radius: 5px;
+}
+.buttons {
+    float: right;
+    text-decoration: none;
+    color: #FDBC43;
+}
+.button1{
+    text-decoration: none;
+    color: #fcb228;
 }

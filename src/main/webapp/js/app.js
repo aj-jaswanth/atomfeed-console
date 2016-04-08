@@ -12,6 +12,10 @@ atomFeedConsoleApp.config(['$routeProvider','$httpProvider', function($routeProv
             templateUrl: 'views/FeedStatus.html',
             controller: 'FeedStatusCtrl'
         })
+        .when('/apps/:appName/failedEvent',{
+                templateUrl: 'views/FailedEvents.html',
+                controller: 'FailedEventCtrl'
+        })
         .otherwise({
             redirectTo: '/apps'
         })
