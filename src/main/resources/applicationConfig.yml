@@ -1,6 +1,6 @@
 ---
 
-   appName: newTestApp
+   appName: openMrs
    dbUrl: jdbc:mysql://172.18.2.6/openmrs
    dbUser: openmrs-user
    dbPassword: password

@@ -1,10 +1,16 @@
 package org.ict4h.service;
 
+import com.mysql.jdbc.log.LogFactory;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
 import org.ict4h.atomfeed.client.domain.FailedEvent;
 import org.ict4h.atomfeed.client.repository.AllFailedEvents;
 import org.ict4h.atomfeed.client.repository.jdbc.AllFailedEventsJdbcImpl;
 import org.ict4h.domain.configuration.AppConfig;
+import org.springframework.beans.factory.access.BootstrapException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +19,7 @@ import java.util.List;
 @Component
 public class FailedEventService {
     private static Logger logger = Logger.getLogger(FailedEventService.class);
+
     @Autowired
     private AppStatusService appStatusService;
 
@@ -29,6 +36,7 @@ public class FailedEventService {
     }
 
     public void resetRetriesService(AppConfig appConfig,String failedEventId){
+
         AppStatusService.AtomfeedConsoleConnectionProvider jdbcConnection = (AppStatusService.AtomfeedConsoleConnectionProvider) appStatusService.getJdbcConnection(appConfig.getAppName());
         AllFailedEvents allFailedEvents = new AllFailedEventsJdbcImpl(jdbcConnection);
         logger.debug(String.format("Reading failed Event status for eventId %s ",failedEventId));

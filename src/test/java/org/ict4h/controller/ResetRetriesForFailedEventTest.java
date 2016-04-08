@@ -35,7 +35,7 @@ public class ResetRetriesForFailedEventTest {
 
     @Before
     public void setUp() throws SQLException {
-         //createDatabase();
+        //createDatabase();
     }
 
     @Test
@@ -43,7 +43,7 @@ public class ResetRetriesForFailedEventTest {
 
         //createFailedEvent("event_id1");
         //createFailedEvent("event_id2");
-        //createFailedEvent("event_id3");
+       // createFailedEvent("event_id3");
         //createFailedEvent("event_id4");
 
         int result;

@@ -1,0 +1,18 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>Feed URI</th>
+            <th>Last Read Entry</th>
+            <th>Count Of Failed Events</th>
+            <th>List Of Failed Events</th>
+        </tr>
+        <tr ng-repeat="result in results">
+            <td>{{result.feedUri}}</td>
+            <td>{{result.lastReadEntry}}</td>
+            <td>{{result.countOfFailedEvents}}</td>
+            <td>
+                <button type="button" ng-click="view(appName,result)">View</button>
+            </td>
+        </tr>
+    </table>
+</div>
