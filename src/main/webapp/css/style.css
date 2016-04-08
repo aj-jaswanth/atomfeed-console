@@ -99,6 +99,8 @@ th {
 table{
     position: relative;
     top: 120px;
+    float: middle;
+    margin: 50px auto 0;
 }
 button{
     float: right;
@@ -110,7 +112,7 @@ button{
 .buttons {
     float: right;
     text-decoration: none;
-    color: #FDBC43;
+    color: #fcb228;
 }
 .button1{
     text-decoration: none;
