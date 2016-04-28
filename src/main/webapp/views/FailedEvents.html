@@ -14,7 +14,7 @@
             <td>{{result.event}}</td>
             <td>{{result.errorMessage}}</td>
             <td>{{result.feedUri}}</td>
-            <td>{{result.retries}}<button><a href="#">Reset</a></button></td>
+            <td>{{result.retries}}<button><a ng-click="resetRetryCount(result)">Reset</a></button></td>
             <td>
                 <button><a href="#/apps/{{appName}}/failedEvent/{{result.event.id}}/retryLog">View</a></button>
             </td>
