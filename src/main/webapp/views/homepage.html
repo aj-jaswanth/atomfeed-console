@@ -1,25 +1,34 @@
 <div class="apps-wrapper clearfix">
 
-    <div class="app-container">
-        <a href="#/apps/openMrs/feedStatus">
-            <h3>OpenMRS</h3>
-            <label>Get Feed Status</label>
-        </a>
+
+    <div class="app-container" ng-repeat="result in results">
+        <div class="app">
+            <a href="#/apps/{{result.appName}}/feedStatus">
+                <h3>{{result.appName}}</h3>
+                <label>Get Feed Status</label>
+            </a>
+        </div>
     </div>
+    <!--<div class="app-container">-->
+    <!--<a href="#/apps/openMrs/feedStatus">-->
+    <!--<h3>OpenMRS</h3>-->
+    <!--<label>Get Feed Status</label>-->
+    <!--</a>-->
+    <!--</div>-->
 
 
-    <div class="app-container middle-element">
-        <a href="#/apps/openErp/feedStatus">
-            <h3>OpenERP</h3>
-            <label>Get Feed Status</label>
-        </a>
+    <!--<div class="app-container middle-element">-->
+    <!--<a href="#/apps/openErp/feedStatus">-->
+    <!--<h3>OpenERP</h3>-->
+    <!--<label>Get Feed Status</label>-->
+    <!--</a>-->
 
-    </div>
+    <!--</div>-->
 
-    <div class="app-container">
-        <a href="#/apps/openElis/feedStatus">
-            <h3>OpenElis</h3>
-            <label>Get Feed Status</label>
-        </a>
-    </div>
+    <!--<div class="app-container">-->
+    <!--<a href="#/apps/openElis/feedStatus">-->
+    <!--<h3>OpenElis</h3>-->
+    <!--<label>Get Feed Status</label>-->
+    <!--</a>-->
+    <!--</div>-->
 </div>

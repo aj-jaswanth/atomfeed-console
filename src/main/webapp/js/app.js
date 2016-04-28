@@ -16,8 +16,11 @@ atomFeedConsoleApp.config(['$routeProvider','$httpProvider', function($routeProv
                 templateUrl: 'views/FailedEvents.html',
                 controller: 'FailedEventCtrl'
         })
-        .otherwise({
-            redirectTo: '/apps'
+        .when('/apps/:appName/failedEvent/:eventId/retryLog',{
+                templateUrl: 'views/RetryLog.html',
+                controller: 'RetryLogCtrl'
         })
-
+        .otherwise({
+                redirectTo: '/apps'
+        })
 }]);

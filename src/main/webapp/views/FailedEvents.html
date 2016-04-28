@@ -1,33 +1,23 @@
 <div class="container">
+
     <table>
         <tr>
-            <th colspan="2"> EventID
-                <a class="buttons" href="http://www.google.com">Retry Log</a>
-            </th>
+            <th>Failed at</th>
+            <th>Event</th>
+            <th>Error message</th>
+            <th>Feed Uri</th>
+            <th>Retries</th>
+            <th>Retry Log</th>
         </tr>
-        <div ng-repeat="result in results">
-        <tr>
-            <td>Failed At</td>
+        <tr ng-repeat="result in results">
             <td>{{result.failedAt}}</td>
-        </tr>
-        <tr>
-            <td>Event</td>
-            <td>{{result.event}} hiuhiubiubviubgiyegiqwdbiwufi7egriybdueywgyuwefrvweyubduwy</td>
-        </tr>
-        <tr>
-            <td>Error Message</td>
+            <td>{{result.event}}</td>
             <td>{{result.errorMessage}}</td>
-        </tr>
-        <tr>
-            <td>Feed Uri</td>
             <td>{{result.feedUri}}</td>
-        </tr>
-        <tr>
-            <td>Retries</td>
-            <td>{{result.retries}}
-                <a class="buttons" href="#">Reset</a>
+            <td>{{result.retries}}<button><a href="#">Reset</a></button></td>
+            <td>
+                <button><a href="#/apps/{{appName}}/failedEvent/{{result.event.id}}/retryLog">View</a></button>
             </td>
         </tr>
-        </div>
     </table>
 </div>
