@@ -1,20 +1,20 @@
 <div class="container">
+
     <table>
-        <table>
-            <tr>
-                <th>Feed Uri</th>
-                <th>Failed At</th>
-                <th>Error message</th>
-                <th>Event Id</th>
-                <th>Event Content</th>
-            </tr>
-            <tr ng-repeat="result in results">
-                <td>{{result.feedUri}}</td>
-                <td>{{result.failedAt}}</td>
-                <td>{{result.errorMessage}}</td>
-                <td>{{result.eventId}}</td>
-                <td>{{result.eventContent}}</td>
-            </tr>
-        </table>
+        <tr>
+            <th>Feed Uri</th>
+            <th>Failed At</th>
+            <th>Error message</th>
+            <th>Event Id</th>
+            <th>Event Content</th>
+        </tr>
+        <tr ng-repeat="result in results">
+            <td>{{result.feedUri}}</td>
+            <td>{{result.failedAt}}</td>
+            <td>{{result.errorMessage}}</td>
+            <td>{{result.eventId}}</td>
+            <td>{{result.eventContent}}</td>
+        </tr>
     </table>
+
 </div>

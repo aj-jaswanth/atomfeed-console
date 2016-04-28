@@ -6,6 +6,12 @@ body{
  font-family: Verdana, Geneva, sans-serif;
 }
 
+.app-container{
+    margin: 50px;
+    margin-top: 0px;
+    margin-bottom: 120px;
+}
+
 .clearfix:after {
      visibility: hidden;
      display: block;
@@ -67,19 +73,20 @@ body{
     text-align: center;
     color: #fdfdfd;
     padding: 5px 0;
+    cursor: pointer;
 }
 .apps-wrapper .app-container h3{
     text-align: center;
-    color: #000;
+    color: #263439;
     font-size: 25px;
     font-weight: normal;
-    margin-top: 0;
+    margin-top: 20;
     margin-bottom: 20px;
 }
-.apps-wrapper .app-container img{
-    width: 200px;
-    margin: 30px auto 10px;
-    display: block;
+
+a{
+    text-decoration: none;
+    color: #fdfdfd;
 }
 table, th,td{
 
@@ -91,9 +98,14 @@ table, th,td{
 
 
 }
+tr{
+    font-family: "Geneva";
+}
 th {
     background: #628982;
     color: #fdfdfd;
+    font-family: "Geneva";
+    font-size: 17px;
 
 }
 table{
@@ -105,16 +117,8 @@ table{
 button{
     float: right;
     font-size: 17px;
-    background: #FDBC43;
-    border: 1px solid #fcb228;
+    background: #628982;
+    border: 1px solid #71948e;
     border-radius: 5px;
-}
-.buttons {
-    float: right;
-    text-decoration: none;
-    color: #fcb228;
-}
-.button1{
-    text-decoration: none;
-    color: #fcb228;
+    cursor: pointer;
 }
