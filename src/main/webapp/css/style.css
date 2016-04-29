@@ -113,8 +113,8 @@ th {
 
 .button{
     float: none;
-    font-size: 17px;
-    padding: 3px;
+    font-size: 16px;
+    padding: 5px 13px;
     background: #628982;
     border: 1px solid #71948e;
     border-radius: 4px;
@@ -123,4 +123,10 @@ th {
 .disabled {
   cursor: not-allowed;
   pointer-events: none;
+  background: #d6dad3;
+  border: 1px solid #d6dad3;
+}
+.button:hover{
+  background: #7FDE28;
+  border: 1px solid #7FDE28;
 }
