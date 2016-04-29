@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-table">
 
     <table>
         <tr>
@@ -9,11 +9,15 @@
             <th>Event Content</th>
         </tr>
         <tr ng-repeat="result in results">
-            <td>{{result.feedUri}}</td>
-            <td>{{result.failedAt}}</td>
-            <td>{{result.errorMessage}}</td>
-            <td>{{result.eventId}}</td>
-            <td>{{result.eventContent}}</td>
+            <td valign="top">{{result.feedUri}}</td>
+            <td valign="top">{{result.failedAt}}</td>
+            <td valign="top">
+                <div style="max-height:500px; overflow:scroll;">
+                    {{result.errorMessage}}
+                </div>
+            </td>
+            <td valign="top">{{result.eventId}}</td>
+            <td valign="top">{{result.eventContent}}</td>
         </tr>
     </table>
 

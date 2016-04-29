@@ -1,5 +1,4 @@
-<div class="container">
-
+<div class="container-table">
     <table>
         <tr>
             <th>Failed at</th>
@@ -10,14 +9,22 @@
             <th>Retry Log</th>
         </tr>
         <tr ng-repeat="result in results">
-            <td>{{result.failedAt}}</td>
-            <td>{{result.event}}</td>
-            <td>{{result.errorMessage}}</td>
-            <td>{{result.feedUri}}</td>
-            <td>{{result.retries}}<br><br><button class="resetButton"><a ng-click="resetRetryCount(result)">Reset</a></button></td>
-            <td>
+            <td valign="top">{{result.failedAt}}</td>
+            <td valign="top">
+<pre>
+{{result.event | json : 4}}
+</pre>
+            </td>
+            <td valign="top">
+                <div style="max-height:500px; overflow:scroll;">
+                    {{result.errorMessage}}
+                </div>
+            </td>
+            <td valign="top" width="150">{{result.feedUri}}</td>
+            <td valign="top" width="60">{{result.retries}}<br><br><a class ="button" ng-click="resetRetryCount(result)">Reset</a></td>
+            <td valign="top" width="60">
                 <br><br>
-                <button><a href="#/apps/{{appName}}/failedEvent/{{result.event.id}}/retryLog">View</a></button>
+                <a class="button" href="#/apps/{{appName}}/failedEvent/{{result.event.id}}/retryLog">View</a>
             </td>
         </tr>
     </table>

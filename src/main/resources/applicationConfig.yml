@@ -35,11 +35,3 @@
    dbPassword: password
 ...
 
----
-   appName: App6
-   dbUrl: jdbc:mysql://172.18.2.6/openmrs
-   dbUser: openmrs-user
-   dbPassword: password
-...
-
-

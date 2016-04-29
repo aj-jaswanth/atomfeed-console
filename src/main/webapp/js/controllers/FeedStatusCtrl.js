@@ -7,5 +7,12 @@ atomFeedConsoleApp.controller('FeedStatusCtrl',['$scope', '$routeParams','FeedSt
         $scope.appName = $routeParams.appName
     });
 
+    $scope.checkDisableStatus = function(result){
+        if(result.countOfFailedEvents == 0){
+            return true;
+        }
+        return false;
+    }
+
 }])
 

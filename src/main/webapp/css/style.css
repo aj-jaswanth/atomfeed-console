@@ -7,7 +7,7 @@ body{
 }
 
 .app-container{
-    margin: 50px;
+    margin: 100px;
     margin-top: 0px;
     margin-bottom: 120px;
 }
@@ -41,10 +41,15 @@ body{
 }
 
 .container{
-    width: 1200px;
+
+    width: 1500px;
     margin: 0 auto;
 }
-
+.container-table{
+    padding: 150px;
+    margin: 0 auto;
+    padding-bottom: 0px;
+}
 .apps-wrapper{
     padding-top : 300px
 }
@@ -90,35 +95,35 @@ a{
 }
 table, th,td{
 
+    table-layout: fixed;
     border: 1px solid #d7d7d7;
     border-collapse: collapse;
     cellspacing: 0px;
     padding: 10px;
     text-align: center;
-
-
-}
-tr{
     font-family: "Geneva";
+}
+td pre {
+    text-align: center;
+    font-family: "Geneva";
+    font-size: 15px;
 }
 th {
     background: #628982;
     color: #fdfdfd;
-    font-family: "Geneva";
     font-size: 17px;
+}
 
-}
-table{
-    position: relative;
-    top: 120px;
-    float: middle;
-    margin: 50px auto 0;
-}
-button{
-    float: right;
+.button{
+    float: none;
     font-size: 17px;
+    padding: 3px;
     background: #628982;
     border: 1px solid #71948e;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+}
+.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
 }

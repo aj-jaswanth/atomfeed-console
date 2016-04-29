@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-table">
     <table>
         <tr>
             <th>Feed URI</th>
@@ -7,12 +7,13 @@
             <th>List Of Failed Events</th>
         </tr>
         <tr ng-repeat="result in results">
-            <td>{{result.feedUri}}</td>
-            <td>{{result.lastReadEntry}}</td>
-            <td>{{result.countOfFailedEvents}}</td>
+            <td valign="top">{{result.feedUri}}</td>
+            <td valign="top">{{result.lastReadEntry}}</td>
+            <td valign="top">{{result.countOfFailedEvents}}</td>
             <td>
-                <button style="float: none;"><a href="#/apps/{{appName}}/failedEvent?feedUri={{result.feedUri}}">View</a></button>
+                <a class="button" ng-class="{disabled: checkDisableStatus(result)}" href="#/apps/{{appName}}/failedEvent?feedUri={{result.feedUri}}">View</a>
             </td>
         </tr>
     </table>
 </div>
+
