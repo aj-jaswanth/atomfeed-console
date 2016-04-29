@@ -6,14 +6,14 @@ atomFeedConsoleApp.controller('RetryLogCtrl',['$scope', '$routeParams','RetryLog
     RetryLogService.getRetryLogData($routeParams.appName,$routeParams.eventId).then(function(response){
         $scope.results = response.data;
         $scope.appName = $routeParams.appName
-        console.log(response.data)
+    })
 
-//        $scope.submitForm = function(){
-//             method  : 'POST',
-//             url     : '/apps/appName/failedEvent/result.event.id/resetRetryCount',
-//        }
-
-    });
+    $scope.dateFunction = function(result) {
+        console.log("in date function")
+        var timestamp = result.failedAt
+        date = new Date(timestamp )
+        return (date.toLocaleDateString()+" "+date.toLocaleTimeString())
+    }
 
 }])
 

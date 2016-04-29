@@ -8,7 +8,7 @@ body{
 
 .app-container{
     margin: 100px;
-    margin-top: 0px;
+    margin-top: -10px;
     margin-bottom: 120px;
 }
 
@@ -39,21 +39,18 @@ body{
     padding: 10px 0;
     display: inline-block;
 }
-
 .container{
-
     width: 1500px;
     margin: 0 auto;
 }
 .container-table{
-    padding: 150px;
+    padding: 70px;
     margin: 0 auto;
     padding-bottom: 0px;
 }
 .apps-wrapper{
     padding-top : 300px
 }
-
 .apps-wrapper .app-container.middle-element{
   margin: 0 125px;
 }

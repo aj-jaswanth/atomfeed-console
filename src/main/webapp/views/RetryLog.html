@@ -1,5 +1,8 @@
 <div class="container-table">
 
+    <div style="margin: 20px;">
+        <a class="button" href='javascript:history.go(-1)'><- Back</a>
+    </div>
     <table>
         <tr>
             <th>Feed Uri</th>
@@ -10,7 +13,7 @@
         </tr>
         <tr ng-repeat="result in results">
             <td valign="top">{{result.feedUri}}</td>
-            <td valign="top">{{result.failedAt}}</td>
+            <td valign="top">{{dateFunction(result)}}</td>
             <td valign="top">
                 <div style="max-height:500px; overflow:scroll;">
                     {{result.errorMessage}}

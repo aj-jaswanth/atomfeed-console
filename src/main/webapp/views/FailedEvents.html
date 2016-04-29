@@ -1,4 +1,8 @@
 <div class="container-table">
+
+    <div style="margin: 20px;">
+        <a class="button" href='javascript:history.go(-1)'><- Back</a>
+    </div>
     <table>
         <tr>
             <th>Failed at</th>
@@ -9,7 +13,7 @@
             <th>Retry Log</th>
         </tr>
         <tr ng-repeat="result in results">
-            <td valign="top">{{result.failedAt}}</td>
+            <td valign="top">{{dateFunction(result)}}</td>
             <td valign="top">
 <pre>
 {{result.event | json : 4}}
