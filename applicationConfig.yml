@@ -1,0 +1,32 @@
+---
+
+   appName: App1
+   dbUrl: jdbc:mysql://172.18.2.6/openmrs
+   dbUser: openmrs-user
+   dbPassword: password
+
+...
+
+---
+   appName: App2
+   dbUrl: jdbc:mysql://172.18.2.6/openmrs
+   dbUser: openmrs-user
+   dbPassword: password
+...
+
+---
+   appName: App3
+   dbUrl: jdbc:mysql://172.18.2.6/openmrs
+   dbUser: openmrs-user
+   dbPassword: password
+...
+
+---
+   appName: App4
+   dbUrl: jdbc:mysql://172.18.2.6/openmrs
+   dbUser: openmrs-user
+   dbPassword: password
+...
+
+
+
