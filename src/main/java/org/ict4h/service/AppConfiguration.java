@@ -21,37 +21,38 @@ public class AppConfiguration {
     private AppConfigs appconfigs = new AppConfigs();
 
     public AppConfiguration() throws SQLException{
-//        InputStream in = this.getClass().getClassLoader().getResourceAsStream(DEFAULT_APP_CONFIG_FILE);
-//        Constructor constructor = new Constructor(AppConfig.class);
-//        Yaml yaml = new Yaml(constructor);
-//        logger.info("Reading app details from a yaml file");
-//        for (Object data : yaml.loadAll(in)) {
-//
-//            AppConfig obj = (AppConfig) data;
-//            appconfigs.add(obj);
-        //       }
-        Properties prop = new Properties();
-        try {
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream(DEFAULT_APP_CONFIG_FILE);
+        Constructor constructor = new Constructor(AppConfig.class);
+        Yaml yaml = new Yaml(constructor);
+        logger.info("Reading app details from a yaml file");
+        for (Object data : yaml.loadAll(in)) {
 
-            File jarPath=new File(AppConfiguration.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-            String propertiesPath=jarPath.getParentFile().getParentFile().getAbsolutePath();
-            logger.info(propertiesPath);
-            InputStream in = new FileInputStream(propertiesPath+"/"+DEFAULT_APP_CONFIG_FILE);
-            logger.info(propertiesPath+"/"+DEFAULT_APP_CONFIG_FILE);
-            Constructor constructor = new Constructor(AppConfig.class);
-            Yaml yaml = new Yaml(constructor);
-            logger.info("Reading app details from a yaml file");
-            for (Object data : yaml.loadAll(in)) {
-
-                AppConfig obj = (AppConfig) data;
-                appconfigs.add(obj);
-            }
-            //System.out.println(" propertiesPath-"+propertiesPath);
-
-        } catch (IOException e1) {
-            e1.printStackTrace();
+            AppConfig obj = (AppConfig) data;
+            appconfigs.add(obj);
         }
 
+//        Properties prop = new Properties();
+//        try {
+//
+//            File jarPath=new File(AppConfiguration.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+//            String propertiesPath=jarPath.getParentFile().getParentFile().getAbsolutePath();
+//            logger.info(propertiesPath);
+//            InputStream in = new FileInputStream(propertiesPath+"/"+DEFAULT_APP_CONFIG_FILE);
+//            logger.info(propertiesPath+"/"+DEFAULT_APP_CONFIG_FILE);
+//            Constructor constructor = new Constructor(AppConfig.class);
+//            Yaml yaml = new Yaml(constructor);
+//            logger.info("Reading app details from a yaml file");
+//            for (Object data : yaml.loadAll(in)) {
+//
+//                AppConfig obj = (AppConfig) data;
+//                appconfigs.add(obj);
+//            }
+//            //System.out.println(" propertiesPath-"+propertiesPath);
+//
+//        } catch (IOException e1) {
+//            e1.printStackTrace();
+//        }
+//
     }
     public AppConfigs getAppConfigs() {
         return appconfigs;

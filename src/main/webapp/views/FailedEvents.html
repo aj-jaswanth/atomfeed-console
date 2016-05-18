@@ -22,7 +22,7 @@
                 </div>
             </td>
             <td valign="top" width="150">{{result.feedUri}}</td>
-            <td valign="top" width="60">{{result.retries}}<br><br><a class ="button" ng-click="resetRetryCount(result)">Reset</a></td>
+            <td valign="top" width="60">{{result.retries}}<br><br><a id="reset button" class ="button" ng-click="resetRetryCount(result)">Reset</a></td>
             <td valign="top" width="60">
                 <br><br>
                 <a class="button" href="#/apps/{{appName}}/failedEvent/{{result.event.id}}/retryLog">View</a>

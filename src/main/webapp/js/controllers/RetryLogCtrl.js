@@ -6,6 +6,7 @@ atomFeedConsoleApp.controller('RetryLogCtrl',['$scope', '$routeParams','RetryLog
     RetryLogService.getRetryLogData($routeParams.appName,$routeParams.eventId).then(function(response){
         $scope.results = response.data;
         $scope.appName = $routeParams.appName
+        console.log(JSON.stringify(response.data))
     })
 
     $scope.dateFunction = function(result) {

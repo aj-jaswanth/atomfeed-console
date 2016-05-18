@@ -7,7 +7,6 @@ atomFeedConsoleApp.controller('FailedEventCtrl',['$scope', '$http', '$routeParam
     FailedEventService.getFailedEventData($routeParams.appName,$routeParams.feedUri).then(function(response){
         $scope.results = response.data;
         $scope.appName = $routeParams.appName
-
     })
 
     $scope.resetRetryCount = function(result) {

@@ -12,7 +12,7 @@
             <td valign="top">{{result.lastReadEntry}}</td>
             <td valign="top">{{result.countOfFailedEvents}}</td>
             <td>
-                <a class="button" ng-class="{disabled: checkDisableStatus(result)}" href="#/apps/{{appName}}/failedEvent?feedUri={{result.feedUri}}">View</a>
+                <a id="view button" class="button" ng-class="{disabled: checkDisableStatus(result)}" href="#/apps/{{appName}}/failedEvent?feedUri={{result.feedUri}}">View</a>
             </td>
         </tr>
     </table>

@@ -25,8 +25,8 @@ public class AppControllerTest {
     @Test
     public void shouldRetrieveConfig() {
         AppConfigs appDetails = appController.getAppDetails();
-        assertThat(appDetails.size(), is((equalTo(4))));
+        assertThat(appDetails.size(), is((equalTo(1))));
         AppConfig appConfig = appDetails.get(0);
-        assertThat(appConfig.getAppName(), is(equalTo("App1")));
+        assertThat(appConfig.getAppName(), is(equalTo("testApp")));
     }
 }
