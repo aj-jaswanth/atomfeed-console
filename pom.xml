@@ -62,6 +62,16 @@
             <version>1.4.191</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.searls</groupId>
+            <artifactId>jasmine-maven-plugin</artifactId>
+            <version>2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kelveden</groupId>
+            <artifactId>maven-karma-plugin</artifactId>
+            <version>1.6</version>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -95,6 +105,26 @@
                     <workingDirectory>${basedir}/src/main</workingDirectory>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>com.kelveden</groupId>
+                <artifactId>maven-karma-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <karmaExecutable>${basedir}/src/main/webapp/node_modules/karma/bin/karma</karmaExecutable>
+                    <configFile>src/main/webapp/test/karma.conf.js</configFile>
+                </configuration>
+            </plugin>
+
+
         </plugins>
         <resources>
             <resource>

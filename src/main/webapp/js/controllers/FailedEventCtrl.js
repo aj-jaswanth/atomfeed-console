@@ -22,11 +22,11 @@ atomFeedConsoleApp.controller('FailedEventCtrl',['$scope', '$http', '$routeParam
     }
 
     $scope.dateFunction = function(result) {
-                console.log("in date function")
-                var timestamp = result.failedAt
-                date = new Date(timestamp )
-                return (date.toLocaleDateString()+" "+date.toLocaleTimeString())
-            }
+        console.log("in date function")
+        var timestamp = result.failedAt
+        date = new Date(timestamp )
+        return (date.toLocaleDateString()+" "+date.toLocaleTimeString())
+    }
 
 }])
 
