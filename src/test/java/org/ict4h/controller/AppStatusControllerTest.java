@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(AtomfeedConsoleApplication.class)
-public class AppControllerTest {
+public class AppStatusControllerTest {
 
     @Autowired
     private AppController appController;

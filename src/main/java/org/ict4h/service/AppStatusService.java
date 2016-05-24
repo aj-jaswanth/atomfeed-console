@@ -51,7 +51,7 @@ public class AppStatusService {
     }
 
     public JdbcConnectionProvider getJdbcConnection(String appName) {
-        org.ict4h.atomfeed.Configuration.getInstance(AppConfiguration.DEFAULT_APP_CONFIG_FILE);
+        org.ict4h.atomfeed.Configuration.getInstance("application.yml");
         try {
             logger.debug(String.format("Opening connection for App : %s",appName));
             return new AtomfeedConsoleConnectionProvider(connectionPools.getConnection(appName));

@@ -1,6 +1,8 @@
 package org.ict4h.domain.configuration;
 
 
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
+
 public class AppConfig {
 
     private String appName;
