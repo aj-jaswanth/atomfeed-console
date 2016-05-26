@@ -25,8 +25,6 @@ public class FailedEventRetryLogController {
         this.failedEventRetryLogService = failedEventRetryLogService;
     }
 
-
-
     @RequestMapping("/apps/{appName}/failedEvent/{eventId}/retryLog")
     @ResponseBody
     public List<FailedEventRetryLog> getFailedEventRetryLogs(@PathVariable String appName,@PathVariable String eventId) throws SQLException, UnsupportedEncodingException {

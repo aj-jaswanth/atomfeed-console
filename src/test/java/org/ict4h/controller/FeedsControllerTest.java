@@ -16,7 +16,6 @@ import java.sql.SQLException;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
-import static org.ict4h.util.Database.createDatabase;
 import static org.junit.Assert.assertThat;
 
 
@@ -34,7 +33,6 @@ public class FeedsControllerTest {
 
     @Before
     public void setUp() throws SQLException {
-        //createDatabase();
     }
 
     @Test

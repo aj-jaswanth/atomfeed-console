@@ -1,16 +1,10 @@
 package org.ict4h.service;
 
-import com.mysql.jdbc.log.LogFactory;
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.spi.LoggerFactory;
 import org.ict4h.atomfeed.client.domain.FailedEvent;
 import org.ict4h.atomfeed.client.repository.AllFailedEvents;
 import org.ict4h.atomfeed.client.repository.jdbc.AllFailedEventsJdbcImpl;
 import org.ict4h.domain.configuration.AppConfig;
-import org.springframework.beans.factory.access.BootstrapException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +16,6 @@ public class FailedEventService {
 
     @Autowired
     private AppStatusService appStatusService;
-
 
     public List<FailedEvent> failedEventStatus (AppConfig appConfig,String feedURI){
 
@@ -47,7 +40,5 @@ public class FailedEventService {
         allFailedEvents.addOrUpdate(failedEvent);
         jdbcConnection.closeConnection();
     }
-
-
 
 }

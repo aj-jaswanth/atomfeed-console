@@ -8,7 +8,6 @@ import org.ict4h.domain.configuration.AppConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.security.acl.LastOwnerException;
 import java.util.List;
 
 @Component

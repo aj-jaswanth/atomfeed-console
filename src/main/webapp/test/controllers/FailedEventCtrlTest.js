@@ -4,7 +4,6 @@ describe('FeedStatusCtrl', function() {
 
     var results =[{"failedAt":1461922584000,"event":{"categories":[],"id":"abcd","content":"","feedUri":null,"updatedDate":null,"title":"","dateCreated":null},"errorMessage":"error message","feedUri":"www.google.com","retries":0,"eventId":"abcd"}]
 
-
     beforeEach(function () {
         module('atomFeedConsole');
         inject(function (_$httpBackend_, $rootScope, $controller,$routeParams) {

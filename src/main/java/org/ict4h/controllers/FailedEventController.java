@@ -13,7 +13,6 @@ import java.net.URLDecoder;
 import java.sql.SQLException;
 import java.util.List;
 
-
 @Controller
 public class FailedEventController {
 

@@ -17,7 +17,6 @@ import java.util.List;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(AtomfeedConsoleApplication.class)
@@ -42,14 +41,11 @@ public class FailedEventRetryLogControllerTest {
 
     @Before
     public void setUp() throws SQLException {
-        //Database.createDatabase();
-
     }
 
     @Test
     public void shouldReturnFailedEvents() throws Exception {
 
-        //createFailedEvent("event_id");
         createFailedEventRetryLog("event_id");
         createFailedEventRetryLog("event_id");
         createFailedEventRetryLog("event_id");
