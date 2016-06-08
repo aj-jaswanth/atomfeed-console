@@ -15,7 +15,7 @@ public class WebConfig {
             public void addViewControllers(ViewControllerRegistry registry) {
                 // forward requests to /admin and /user to their index.html
                 registry.addViewController("/app").setViewName(
-                        "/Users/kritikaj/kritika_code/atomfeed-console/src/main/webapp/index.html");
+                        "/Users/kritikaj/kritika_code/atomfeed-console/src/main/static/index.html");
 
             }
         };
