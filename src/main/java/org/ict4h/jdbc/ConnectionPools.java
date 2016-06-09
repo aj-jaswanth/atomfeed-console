@@ -2,7 +2,6 @@ package org.ict4h.jdbc;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.ict4h.domain.configuration.AppConfig;
-import org.ict4h.domain.configuration.AppConfigs;
 import org.ict4h.service.AppConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

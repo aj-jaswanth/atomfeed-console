@@ -15,7 +15,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.Is.is;
 import static org.ict4h.util.Database.*;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(AtomfeedConsoleApplication.class)
@@ -35,16 +34,10 @@ public class ResetRetriesForFailedEventTest {
 
     @Before
     public void setUp() throws SQLException {
-        //createDatabase();
     }
 
     @Test
     public void shouldResetRetries() throws Exception {
-
-        //createFailedEvent("event_id1");
-        //createFailedEvent("event_id2");
-       // createFailedEvent("event_id3");
-        //createFailedEvent("event_id4");
 
         int result;
 

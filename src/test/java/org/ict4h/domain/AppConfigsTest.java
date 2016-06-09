@@ -7,7 +7,6 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
-import static org.mockito.Matchers.isNull;
 
 public class AppConfigsTest {
 

@@ -7,6 +7,7 @@ import org.ict4h.domain.configuration.AppConfigs;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,7 +22,7 @@ public class AppStatusControllerTest {
     @Autowired
     private AppController appController;
 
-
+    @Value("${../../resources/application.yml}")
     @Test
     public void shouldRetrieveConfig() {
         AppConfigs appDetails = appController.getAppDetails();

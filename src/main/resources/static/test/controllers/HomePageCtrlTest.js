@@ -25,7 +25,6 @@ describe('HomePageCtrl', function() {
                     }
                   ];
 
-
     beforeEach(function () {
         module('atomFeedConsole');
         inject(function (_$httpBackend_, $rootScope, $controller) {

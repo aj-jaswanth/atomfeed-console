@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 public class AppConfiguration {
     private final AppConfigs appConfigs = new AppConfigs();
 
-
     public AppConfigs getAppConfigs() {
         return appConfigs;
     }

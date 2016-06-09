@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.SQLException;
 
-
 @Controller
 public class AppStatusController {
 
