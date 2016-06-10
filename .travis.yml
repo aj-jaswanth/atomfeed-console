@@ -1,4 +1,2 @@
 language: java
-before_install:
-  - sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://repo.spring.io/libs-release/|g' ~/.m2/settings.xml
 
