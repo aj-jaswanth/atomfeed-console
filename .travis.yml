@@ -1,4 +1,4 @@
 language: java
 before_install:
-  - sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/snapshots/|g' ~/.m2/settings.xml
+  - sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://repo.spring.io/libs-release/|g' ~/.m2/settings.xml
 
