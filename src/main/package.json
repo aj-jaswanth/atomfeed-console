@@ -14,7 +14,7 @@
   },
   "scripts": {
 
-    "test": "node webapp/node_modules/karma/bin/karma start webapp/test/karma.conf.js",
-    "test-single-run": "node webapp/node_modules/karma/bin/karma start webapp/test/karma.conf.js  --single-run"
+    "test": "node resources/static/node_modules/karma/bin/karma start resources/static/test/karma.conf.js",
+    "test-single-run": "node resources/static/node_modules/karma/bin/karma start resources/static/test/karma.conf.js  --single-run"
   }
 }
