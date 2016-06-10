@@ -119,8 +119,6 @@
                     <configFile>src/main/resources/static/test/karma.conf.js</configFile>
                 </configuration>
             </plugin>
-
-
         </plugins>
         <resources>
             <resource>
@@ -141,6 +139,16 @@
             <id>spring-releases</id>
             <url>https://repo.spring.io/libs-release</url>
         </repository>
+
+        <repository>
+            <id>codehaus-mule-repo</id>
+            <name>codehaus-mule-repo</name>
+            <url>
+                https://repository-master.mulesoft.org/nexus/content/groups/public/
+            </url>
+            <layout>default</layout>
+        </repository>
+
     </repositories>
     <pluginRepositories>
         <pluginRepository>
