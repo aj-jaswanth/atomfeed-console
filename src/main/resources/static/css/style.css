@@ -99,7 +99,10 @@ table, th,td{
     padding: 10px;
     text-align: center;
     font-family: "Geneva";
+    width: 100%;
+    overflow: scroll;
 }
+
 td pre {
     text-align: center;
     font-family: "Geneva";
