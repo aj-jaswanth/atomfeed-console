@@ -76,7 +76,6 @@
     </properties>
 
 
-
     <build>
         <plugins>
             <plugin>
@@ -127,17 +126,26 @@
                 <version>2.1.5</version>
                 <executions>
                     <execution>
-                        <phase>install</phase>
-                        <goals><goal>rpm</goal></goals>
+                        <id>generate-rpm</id>
+                        <goals>
+                            <goal>rpm</goal>
+                        </goals>
                     </execution>
                 </executions>
                 <configuration>
-                      <group>ict4h.atomfeed</group>
-                    <executable>rpmbuild</executable>
-                    <arguments>
-                        <argument>-bb</argument>
-                    </arguments>
-                    <workingDirectory>${basedir}/target/rpm/atomfeed-console/SPECS/atomfeed-console.spec</workingDirectory>
+                    <name>atomfeed-console</name>
+                    <group>ict4h.atomfeed</group>
+                    <targetOS>Linux</targetOS>
+                    <mappings>
+                        <mapping>
+                            <sources>
+                                <source>
+                                    <location>${basedir}/target/atomfeed-console-1.0-SNAPSHOT.jar</location>
+                                </source>
+                            </sources>
+                            <directory>/opt</directory>
+                        </mapping>
+                    </mappings>
                 </configuration>
             </plugin>
         </plugins>
@@ -153,7 +161,6 @@
             </resource>
         </resources>
     </build>
-
 
 
     <repositories>
