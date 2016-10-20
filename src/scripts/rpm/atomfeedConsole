@@ -1,0 +1,53 @@
+#!/bin/bash
+#
+# atomfeed-console         start/stop/status script
+#
+# chkconfig:  - 64 36
+# description: Console service for atomfeeds
+# processname: atomfeedConsole
+# config: /etc/atomfeedConsole
+# pidfile: /var/run/atomfeedConsole/atomfeedConsole.pid
+
+atomfeedConsole_pid() {
+    echo `ps -fe | grep 'atomfeed-console-1.0-SNAPSHOT.jar' | grep -v grep | tr -s " "|cut -d" " -f2`
+}
+
+start(){
+         nohup java -jar /opt/atomfeedConsole/atomfeed-console-1.0-SNAPSHOT.jar --spring.config.location=/etc/atomfeedConsole/application.yml > /var/log/atomfeedConsole 2>&1 &
+}
+
+status() {
+    pid=$(atomfeedConsole_pid)
+    if [ -n "$pid" ];
+    then
+        echo -e "\e atomfeed-console is running with pid: $pid\e"
+    exit 0
+    else
+        echo -e "\e atomfeed-console is not running\e"
+    exit 3
+    fi
+}
+
+stop() {
+    echo -e "\e[Terminating atomfeed-console\e"
+    kill -9 $(atomfeedConsole_pid)
+    return
+}
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+      stop
+    ;;
+    restart)
+      stop
+      start
+    ;;
+    status)
+        status
+    ;;
+    kill)
+        stop
+    ;;
+esac
