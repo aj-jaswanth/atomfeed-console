@@ -2,7 +2,7 @@
 #
 # atomfeed-console         start/stop/status script
 #
-# chkconfig:  - 64 36
+# chkconfig:  2345 64 36
 # description: Console service for atomfeeds
 # processname: atomfeedConsole
 # config: /etc/atomfeedConsole
@@ -13,7 +13,7 @@ atomfeedConsole_pid() {
 }
 
 start(){
-         nohup java -jar /opt/atomfeedConsole/atomfeed-console-1.0-SNAPSHOT.jar --spring.config.location=/etc/atomfeedConsole/application.yml > /var/log/atomfeedConsole 2>&1 &
+         nohup java -jar /opt/atomfeedConsole/bin/atomfeed-console-1.0-SNAPSHOT.jar --spring.config.location=/opt/atomfeedConsole/etc/application.yml > /opt/atomfeedConsole/var/log/atomfeed-console.log 2>&1 &
 }
 
 status() {

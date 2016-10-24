@@ -143,7 +143,7 @@
                                     <location>${basedir}/target/atomfeed-console-1.0-SNAPSHOT.jar</location>
                                 </source>
                             </sources>
-                            <directory>/opt/atomfeedConsole</directory>
+                            <directory>/opt/atomfeedConsole/bin/</directory>
                         </mapping>
                         <mapping>
                             <sources>
@@ -151,15 +151,15 @@
                                     <location>${basedir}/src/main/resources/application.yml</location>
                                 </source>
                             </sources>
-                            <directory>/etc/atomfeedConsole/</directory>
+                            <directory>/opt/atomfeedConsole/etc/</directory>
                         </mapping>
                         <mapping>
                             <sources>
                                 <source>
-                                    <location>${basedir}/src/scripts/rpm/atomfeedConsole</location>
+                                    <location>${basedir}/src/scripts/rpm/atomfeed-console</location>
                                 </source>
                             </sources>
-                            <directory>/etc/atomfeedConsole/</directory>
+                            <directory>/opt/atomfeedConsole/etc/</directory>
                         </mapping>
                     </mappings>
 
