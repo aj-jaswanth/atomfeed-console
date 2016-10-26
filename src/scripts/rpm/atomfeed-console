@@ -4,16 +4,16 @@
 #
 # chkconfig:  2345 64 36
 # description: Console service for atomfeeds
-# processname: atomfeedConsole
-# config: /etc/atomfeedConsole
-# pidfile: /var/run/atomfeedConsole/atomfeedConsole.pid
+# processname: atomfeed-console
+# config: /etc/atomfeed-console
+# pidfile: /var/run/atomfeed-console/atomfeed-console.pid
 
 atomfeedConsole_pid() {
     echo `ps -fe | grep 'atomfeed-console-1.0-SNAPSHOT.jar' | grep -v grep | tr -s " "|cut -d" " -f2`
 }
 
 start(){
-         nohup java -jar /opt/atomfeedConsole/bin/atomfeed-console-1.0-SNAPSHOT.jar --spring.config.location=/opt/atomfeedConsole/etc/application.yml > /opt/atomfeedConsole/var/log/atomfeed-console.log 2>&1 &
+         nohup java -jar /opt/atomfeed-console/bin/atomfeed-console-1.0-SNAPSHOT.jar --spring.config.location=/etc/atomfeed-console.yml > /var/log/atomfeed-console.log 2>&1 &
 }
 
 status() {
