@@ -6,39 +6,63 @@
 # description: Console service for atomfeeds
 # processname: atomfeed-console
 # config: /etc/atomfeed-console
-# pidfile: /var/run/atomfeed-console/atomfeed-console.pid
+
+ATOMFEED_CONSOLE_USER='atomfeed-console'
 
 atomfeedConsole_pid() {
     echo `ps -fe | grep 'atomfeed-console-1.0-SNAPSHOT.jar' | grep -v grep | tr -s " "|cut -d" " -f2`
 }
 
 start(){
-         nohup java -jar /opt/atomfeed-console/bin/atomfeed-console-1.0-SNAPSHOT.jar --spring.config.location=/etc/atomfeed-console.yml > /var/log/atomfeed-console.log 2>&1 &
+    pid=$(atomfeedConsole_pid)
+    if [ -n "$pid" ]
+    then
+        echo -e "\e[00;31mService atomfeed-console is already running (pid: $pid)\e[00m"
+    else
+        /bin/su -s /bin/bash ${ATOMFEED_CONSOLE_USER} /opt/atomfeed-console/bin/start.sh
+        echo -e "\e[00;32mStarting atomfeed-console\e[00m"
+    fi
+    return 0
 }
 
+debug() {
+    pid=$(atomfeedConsole_pid)
+    if [ -n "$pid" ]
+    then
+        echo -e "\e[00;31mService atomfeed-console is already running (pid: $pid)\e[00m"
+    else
+        /bin/su -s /bin/bash ${ATOMFEED_CONSOLE_USER} /opt/atomfeed-console/bin/debug.sh
+        echo -e "\e[00;32mStarting atomfeed-console\e[00m"
+    fi
+    return 0
+}
 status() {
     pid=$(atomfeedConsole_pid)
     if [ -n "$pid" ];
     then
-        echo -e "\e atomfeed-console is running with pid: $pid\e"
+        echo -e "\e[00;32matomfeed-console is running with pid: $pid\e[00m"
     exit 0
     else
-        echo -e "\e atomfeed-console is not running\e"
+        echo -e "\e[00;31matomfeed-console is not running\e[00m"
     exit 3
     fi
 }
 
 stop() {
-    echo -e "\e[Terminating atomfeed-console\e"
+    echo -e "\e[00;31mTerminating atomfeed-console\e[00m"
     kill -9 $(atomfeedConsole_pid)
     return
 }
+
 case "$1" in
     start)
         start
-        ;;
+    ;;
     stop)
       stop
+    ;;
+    debug)
+      debug
     ;;
     restart)
       stop

@@ -164,10 +164,10 @@
                         <mapping>
                             <sources>
                                 <source>
-                                    <location>${basedir}/src/scripts/rpm/atomfeed-console</location>
+                                    <location>${basedir}/src/scripts/rpm/</location>
                                 </source>
                             </sources>
-                            <directory>/opt/atomfeed-console/etc/</directory>
+                            <directory>/opt/atomfeed-console/bin/</directory>
                         </mapping>
                     </mappings>
 

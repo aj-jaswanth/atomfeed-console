@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "pre install"
-rm -rf /opt/atomfeed-console
-sudo rm -rf /etc/init.d/atomfeed-console
-sudo rm -rf /etc/atomfeed-console.yml
-sudo rm -rf /etc/log4j.properties
-sudo rm -rf /var/log/atomfeed-console.log
+service atomfeed-console stop || true
+
+rm -rf /opt/atomfeed-console/
+rm -f /etc/init.d/atomfeed-console
+rm -rf /etc/atomfeed-console/
+rm -rf /var/log/atomfeed-console/
