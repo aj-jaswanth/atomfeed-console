@@ -1,6 +1,7 @@
 package org.ict4h.controller;
 
 import org.ict4h.AtomfeedConsoleApplication;
+import org.ict4h.BaseTest;
 import org.ict4h.atomfeed.client.domain.FailedEventRetryLog;;
 import org.ict4h.controllers.FailedEventRetryLogController;
 import org.ict4h.util.Database;
@@ -20,7 +21,7 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(AtomfeedConsoleApplication.class)
-public class FailedEventRetryLogControllerTest {
+public class FailedEventRetryLogControllerTest extends BaseTest {
     private int failedEventRetryId = 1;
 
     private int failedEventId = 1;
@@ -38,10 +39,6 @@ public class FailedEventRetryLogControllerTest {
     @Autowired
     private FailedEventRetryLogController failedEventRetryLogController;
     private List<FailedEventRetryLog> failedEventRetryLogList;
-
-    @Before
-    public void setUp() throws SQLException {
-    }
 
     @Test
     public void shouldReturnFailedEvents() throws Exception {

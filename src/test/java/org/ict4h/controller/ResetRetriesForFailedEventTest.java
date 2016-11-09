@@ -1,6 +1,7 @@
 package org.ict4h.controller;
 
 import org.ict4h.AtomfeedConsoleApplication;
+import org.ict4h.BaseTest;
 import org.ict4h.controllers.ResetRetryEventController;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +19,7 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(AtomfeedConsoleApplication.class)
-public class ResetRetriesForFailedEventTest {
+public class ResetRetriesForFailedEventTest extends BaseTest {
 
     private int failedEventId = 1;
 
@@ -31,10 +32,6 @@ public class ResetRetriesForFailedEventTest {
             "where event_id = ? ";
     @Autowired
     private ResetRetryEventController resetRetryEventController;
-
-    @Before
-    public void setUp() throws SQLException {
-    }
 
     @Test
     public void shouldResetRetries() throws Exception {

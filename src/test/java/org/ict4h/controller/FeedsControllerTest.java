@@ -1,6 +1,7 @@
 package org.ict4h.controller;
 
 import org.ict4h.AtomfeedConsoleApplication;
+import org.ict4h.BaseTest;
 import org.ict4h.controllers.AppStatusController;
 import org.ict4h.domain.Feed;
 import org.ict4h.domain.Feeds;
@@ -21,7 +22,7 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(AtomfeedConsoleApplication.class)
-public class FeedsControllerTest {
+public class FeedsControllerTest extends BaseTest {
 
     private static final String CREATE_MARKERS= "insert into markers " +
             "(feed_uri, last_read_entry_id, feed_uri_for_last_read_entry) " +
@@ -30,10 +31,6 @@ public class FeedsControllerTest {
 
     @Autowired
     private AppStatusController appStatusController;
-
-    @Before
-    public void setUp() throws SQLException {
-    }
 
     @Test
     public void shouldReturnFeedStatus() throws Exception {

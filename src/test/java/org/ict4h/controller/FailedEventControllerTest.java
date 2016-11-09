@@ -1,6 +1,7 @@
 package org.ict4h.controller;
 
 import org.ict4h.AtomfeedConsoleApplication;
+import org.ict4h.BaseTest;
 import org.ict4h.atomfeed.client.domain.FailedEvent;
 import org.ict4h.controllers.FailedEventController;
 import org.ict4h.util.Database;
@@ -21,7 +22,7 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(AtomfeedConsoleApplication.class)
-public class FailedEventControllerTest {
+public class FailedEventControllerTest extends BaseTest {
 
     private int failedEventId = 1;
 
@@ -32,11 +33,6 @@ public class FailedEventControllerTest {
     @Autowired
     private FailedEventController failedEventController;
     private List<FailedEvent> failedEventList = new ArrayList<>();
-
-    @Before
-    public void setUp() throws SQLException {
-        Database.createDatabase();
-    }
 
     @Test
     public void shouldReturnFailedEvents() throws Exception {
