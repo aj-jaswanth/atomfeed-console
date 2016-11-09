@@ -73,6 +73,7 @@
 
     <properties>
         <java.version>1.7</java.version>
+        <rpm.build.number>1</rpm.build.number>
     </properties>
 
 
@@ -136,6 +137,7 @@
                     <name>atomfeed-console</name>
                     <group>ict4h.atomfeed</group>
                     <targetOS>Linux</targetOS>
+                    <release>${rpm.build.number}</release>
                     <mappings>
                         <mapping>
                             <sources>
