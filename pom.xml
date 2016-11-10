@@ -142,7 +142,8 @@
                         <mapping>
                             <sources>
                                 <source>
-                                    <location>${basedir}/target/atomfeed-console-1.0-SNAPSHOT.jar</location>
+                                    <location>${basedir}/target/</location>
+                                    <includes>atomfeed-console-*.jar</includes>
                                 </source>
                             </sources>
                             <directory>/opt/atomfeed-console/bin/</directory>

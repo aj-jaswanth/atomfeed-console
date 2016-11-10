@@ -24,6 +24,8 @@ mkdir /var/log/atomfeed-console/
 chown -R atomfeed-console:atomfeed-console /opt/atomfeed-console/
 chmod +x /opt/atomfeed-console/bin/atomfeed-console
 
+mv /opt/atomfeed-console/bin/atomfeed-console*.jar /opt/atomfeed-console/bin/atomfeed-console.jar
+
 ln -sf /opt/atomfeed-console/etc/application.yml /etc/atomfeed-console/atomfeed-console.yml
 ln -sf /opt/atomfeed-console/etc/log4j.properties /etc/atomfeed-console/log4j.properties
 ln -sf /opt/atomfeed-console/var/log/atomfeed-console.log /var/log/atomfeed-console/atomfeed-console.log

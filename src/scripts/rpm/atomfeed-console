@@ -10,7 +10,7 @@
 ATOMFEED_CONSOLE_USER='atomfeed-console'
 
 atomfeedConsole_pid() {
-    echo `ps -fe | grep 'atomfeed-console-1.0-SNAPSHOT.jar' | grep -v grep | tr -s " "|cut -d" " -f2`
+    echo `ps -fe | grep 'atomfeed-console.jar' | grep -v grep | tr -s " "|cut -d" " -f2`
 }
 
 start(){
@@ -32,7 +32,7 @@ debug() {
         echo -e "\e[00;31mService atomfeed-console is already running (pid: $pid)\e[00m"
     else
         /bin/su -s /bin/bash ${ATOMFEED_CONSOLE_USER} /opt/atomfeed-console/bin/debug.sh
-        echo -e "\e[00;32mStarting atomfeed-console\e[00m"
+        echo -e "\e[00;32mStarting atomfeed-console in debug mode\e[00m"
     fi
     return 0
 }
@@ -41,16 +41,22 @@ status() {
     if [ -n "$pid" ];
     then
         echo -e "\e[00;32matomfeed-console is running with pid: $pid\e[00m"
-    exit 0
+        exit 0
     else
         echo -e "\e[00;31matomfeed-console is not running\e[00m"
-    exit 3
+        exit 3
     fi
 }
 
 stop() {
-    echo -e "\e[00;31mTerminating atomfeed-console\e[00m"
-    kill -9 $(atomfeedConsole_pid)
+    pid=$(atomfeedConsole_pid)
+    if [ -n "$pid" ];
+    then
+        echo -e "\e[00;31mTerminating atomfeed-console\e[00m"
+        kill -9 ${pid}
+    else
+        echo -e "\e[00;31matomfeed-console is not running\e[00m"
+    fi
     return
 }
 
