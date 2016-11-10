@@ -8,7 +8,7 @@ describe('FeedStatusCtrl', function() {
         module('atomFeedConsole');
         inject(function (_$httpBackend_, $rootScope, $controller,$routeParams) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('/apps/'+$routeParams.appName+'/failedEvent?feedUri='+encodeURIComponent($routeParams.feedUri)).
+            $httpBackend.expectGET('apps/'+$routeParams.appName+'/failedEvent?feedUri='+encodeURIComponent($routeParams.feedUri)).
                   respond(results);
 
             scope = $rootScope.$new();

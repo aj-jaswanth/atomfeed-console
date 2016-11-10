@@ -24,7 +24,7 @@ describe('FeedStatusCtrl', function() {
         module('atomFeedConsole');
         inject(function (_$httpBackend_, $rootScope, $controller,$routeParams) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('/apps/'+$routeParams.appName+'/feedStatus').
+            $httpBackend.expectGET('apps/'+$routeParams.appName+'/feedStatus').
                   respond(results);
 
             scope = $rootScope.$new();

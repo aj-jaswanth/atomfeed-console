@@ -1,5 +1,6 @@
 server:
   port: 9080
+  contextPath: /atomfeed-console
 appConfigs:
 -
    appName: App1

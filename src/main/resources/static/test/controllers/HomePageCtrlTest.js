@@ -29,7 +29,7 @@ describe('HomePageCtrl', function() {
         module('atomFeedConsole');
         inject(function (_$httpBackend_, $rootScope, $controller) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('/apps').
+            $httpBackend.expectGET('apps').
                   respond(results);
 
             scope = $rootScope.$new();

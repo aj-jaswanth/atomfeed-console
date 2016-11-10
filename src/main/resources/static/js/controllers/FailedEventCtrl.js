@@ -13,7 +13,7 @@ atomFeedConsoleApp.controller('FailedEventCtrl',['$scope', '$http', '$routeParam
         console.log('/apps/'+$scope.appName+'/failedEvent/'+result.event.id+'/resetRetryCount')
         $http({
             method: 'POST',
-            url: '/apps/'+$scope.appName+'/failedEvent/'+result.event.id+'/resetRetryCount'
+            url: 'apps/'+$scope.appName+'/failedEvent/'+result.event.id+'/resetRetryCount'
         }).
         success(function(response){
             $window.location.reload();
