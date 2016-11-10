@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 service atomfeed-console stop || true
 
 rm -rf /opt/atomfeed-console/

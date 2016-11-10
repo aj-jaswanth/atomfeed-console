@@ -181,6 +181,10 @@
                         <scriptFile>${basedir}/src/scripts/atomfeedConsole/postinstall.sh</scriptFile>
                         <fileEncoding>utf-8</fileEncoding>
                     </postinstallScriptlet>
+                    <preremoveScriptlet>
+                        <scriptFile>${basedir}/src/scripts/atomfeedConsole/preuninstall.sh</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </preremoveScriptlet>
                 </configuration>
             </plugin>
         </plugins>

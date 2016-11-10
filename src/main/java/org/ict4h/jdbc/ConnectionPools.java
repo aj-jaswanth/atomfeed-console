@@ -14,7 +14,6 @@ import java.util.List;
 
 @Component
 public class ConnectionPools {
-    private ComboPooledDataSource cpds;
     private HashMap<String,ComboPooledDataSource> datasources = new HashMap<>();
     private AppConfiguration appConfiguration;
 
@@ -26,9 +25,8 @@ public class ConnectionPools {
     @PostConstruct
     public void setupConfiguration() {
         List<AppConfig> appConfigs = appConfiguration.getAppConfigs();
-        cpds = new ComboPooledDataSource();
         for(AppConfig appConfig : appConfigs) {
-
+            ComboPooledDataSource cpds = new ComboPooledDataSource();
             cpds.setJdbcUrl(appConfig.getDbUrl());
             cpds.setUser(appConfig.getDbUser());
             cpds.setPassword(appConfig.getDbPassword());

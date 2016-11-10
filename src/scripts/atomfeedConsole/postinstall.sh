@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 USER=atomfeed-console
 GROUP=atomfeed-console
 
