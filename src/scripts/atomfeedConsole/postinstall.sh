@@ -5,12 +5,12 @@ set -x
 USER=atomfeed-console
 GROUP=atomfeed-console
 
-/bin/id -g ${GROUP} 2>/dev/null
+id -g ${GROUP} 2>/dev/null
 if [ $? -eq 1 ]; then
     groupadd ${GROUP}
 fi
 
-/bin/id ${USER} 2>/dev/null
+id ${USER} 2>/dev/null
 if [ $? -eq 1 ]; then
     useradd -g ${USER} ${USER}
 fi
