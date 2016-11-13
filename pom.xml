@@ -143,7 +143,9 @@
                             <sources>
                                 <source>
                                     <location>${basedir}/target/</location>
-                                    <includes>atomfeed-console-*.jar</includes>
+                                    <includes>
+                                        <include>atomfeed-console-*.jar</include>
+                                    </includes>
                                 </source>
                             </sources>
                             <directory>/opt/atomfeed-console/bin/</directory>
