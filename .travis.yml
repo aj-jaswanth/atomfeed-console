@@ -2,5 +2,7 @@ language: java
 jdk:
   - openjdk7
 node_js: "6"
-install: "npm install -g bower"
+install:
+  - npm install -g bower
+  - apt-get install rpm
 script: "xvfb-run -a mvn clean install"
