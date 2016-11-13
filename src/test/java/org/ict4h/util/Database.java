@@ -75,4 +75,8 @@ public class Database {
         statement.close();
         return result;
     }
+
+    public static void dropAll() throws SQLException {
+        runStatement("DROP ALL OBJECTS");
+    }
 }

@@ -38,6 +38,11 @@ public class ResetRetriesForFailedEventTest extends BaseTest {
 
         int result;
 
+        createFailedEvent("event_id1");
+        createFailedEvent("event_id2");
+        createFailedEvent("event_id3");
+        createFailedEvent("event_id4");
+
         resetRetryEventController.resetRetries("testApp","event_id1");
         result= runStatement(RETRIEVE_RETRY_COUNT,"event_id1");
         assertThat(result,is(equalTo(0)));
